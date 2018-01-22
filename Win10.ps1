@@ -1913,6 +1913,7 @@ Function UninstallHyperV {
 # Install Chocolatey
 Function InstallChocolatey {
 	Write-Host "Installing Chocolatey..."
+	Get-ExecutionPolicy -List
 	$null = Set-ExecutionPolicy Bypass -Scope Process -Force
 	$null = iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 }
