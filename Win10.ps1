@@ -64,8 +64,8 @@ $tweaks = @(
 	"DisableActionCenter",          # "EnableActionCenter",
 	"DisableLockScreen",            # "EnableLockScreen",
 	# "DisableLockScreenRS1",       # "EnableLockScreenRS1",
-	"HideNetworkFromLockScreen",    # "ShowNetworkOnLockScreen",
-	"HideShutdownFromLockScreen",   # "ShowShutdownOnLockScreen",
+	#"HideNetworkFromLockScreen",    # "ShowNetworkOnLockScreen",
+	#"HideShutdownFromLockScreen",   # "ShowShutdownOnLockScreen",
 	"DisableStickyKeys",            # "EnableStickyKeys",
 	"ShowTaskManagerDetails"        # "HideTaskManagerDetails",
 	"ShowFileOperationsDetails",    # "HideFileOperationsDetails",
@@ -123,7 +123,7 @@ $tweaks = @(
 	"EnableF8BootMenu",             # "DisableF8BootMenu",
 	"SetDEPOptOut",                 # "SetDEPOptIn",
 	# "EnableMeltdownCompatFlag"    # "DisableMeltdownCompatFlag",
-
+	"InstallChocolatey",
 	### Server Specific Tweaks ###
 	# "HideServerManagerOnLogin",   # "ShowServerManagerOnLogin",
 	# "DisableShutdownTracker",     # "EnableShutdownTracker",
@@ -1908,6 +1908,12 @@ Function UninstallHyperV {
 	} Else {
 		Disable-WindowsOptionalFeature -Online -FeatureName "Microsoft-Hyper-V-All" -NoRestart -WarningAction SilentlyContinue | Out-Null
 	}
+}
+
+# Install Chocolatey
+Function InstallChocolatey {
+	Write-Host "Installing Chocolatey..."
+	iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 }
 
 # Set Photo Viewer association for bmp, gif, jpg, png and tif
