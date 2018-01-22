@@ -132,7 +132,7 @@ $tweaks = @(
 	# "DisableIEEnhancedSecurity",  # "EnableIEEnhancedSecurity",
 
 	### Unpinning ###
-	# "UnpinStartMenuTiles",
+	"UnpinStartMenuTiles",
 	# "UnpinTaskbarIcons",
 
 	### Auxiliary Functions ###
