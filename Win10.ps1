@@ -1915,7 +1915,7 @@ Function InstallChocolatey {
 	Write-Host "Installing Chocolatey..."
 	Get-ExecutionPolicy -List
 	$null = Set-ExecutionPolicy Bypass -Scope Process -Force
-	$null = iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+	$null = invole-expression -command ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1')) -WarningAction 'SilentlyContinue'
 }
 
 # Set Photo Viewer association for bmp, gif, jpg, png and tif
